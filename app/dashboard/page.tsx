@@ -18,7 +18,6 @@ import {
 // Import custom dashboard tab components
 import DashboardOverview from "@/components/dashboard/DashboardOverview";
 import AIAssistant from "@/components/dashboard/AIAssistant";
-import OnboardingAdoption from "@/components/dashboard/OnboardingAdoption";
 import FinancialCoach from "@/components/dashboard/FinancialCoach";
 import DigitalTwinTab from "@/components/dashboard/DigitalTwinTab";
 import WealthGoals from "@/components/dashboard/WealthGoals";
@@ -34,9 +33,8 @@ export default function DashboardPage() {
   const [smartYield, setSmartYield] = useState(250000.00);
   const [activeGoalsRate, setActiveGoalsRate] = useState(40);
   
-  // KYC & Service adoption metrics
+  // KYC status
   const [kycStatus, setKycStatus] = useState("verified"); // verified / none
-  const [digitalAdoptionRate, setDigitalAdoptionRate] = useState(25); // percentage
 
   // System States
   const [isAutonomousMode, setIsAutonomousMode] = useState(true);
@@ -250,7 +248,6 @@ export default function DashboardPage() {
             appliedOptimizations={appliedOptimizations}
             isAutonomousMode={isAutonomousMode}
             kycStatus={kycStatus}
-            digitalAdoptionRate={digitalAdoptionRate}
           />
         );
       case "AI Assistant":
@@ -262,17 +259,6 @@ export default function DashboardPage() {
               }
             }}
             healthScore={healthScore}
-          />
-        );
-      case "Adoption":
-        return (
-          <OnboardingAdoption 
-            kycStatus={kycStatus}
-            setKycStatus={setKycStatus}
-            digitalAdoptionRate={digitalAdoptionRate}
-            setDigitalAdoptionRate={setDigitalAdoptionRate}
-            setBalance={setBalance}
-            setTransactions={setTransactions}
           />
         );
       case "Financial Coach":
@@ -356,7 +342,6 @@ export default function DashboardPage() {
   const navItems = [
     "Overview",
     "AI Assistant",
-    "Adoption",
     "Financial Coach",
     "Digital Twin",
     "Wealth & Goals",

@@ -39,16 +39,6 @@ export default function AgentsSection() {
       bgGlow: "group-hover:shadow-electric-blue/15",
     },
     {
-      id: 2,
-      title: "Digital Adoption Agent",
-      description: "Nudges users to discover and adopt relevant mobile services, features, and modern digital wallets.",
-      status: "Running",
-      statusColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-      icon: Smartphone,
-      themeColor: "text-cyan-accent border-cyan-accent/20 bg-cyan-accent/10",
-      bgGlow: "group-hover:shadow-cyan-accent/15",
-    },
-    {
       id: 3,
       title: "Finance Coach",
       description: "Analyzes spending habits to formulate tailored investment plans and micro-portfolio recommendations.",
@@ -57,16 +47,6 @@ export default function AgentsSection() {
       icon: TrendingUp,
       themeColor: "text-accent-purple border-accent-purple/20 bg-accent-purple/10",
       bgGlow: "group-hover:shadow-accent-purple/15",
-    },
-    {
-      id: 4,
-      title: "Fraud Guardian",
-      description: "Monitors transaction feeds continuously to detect anomalies, velocity spikes, and fraud patterns.",
-      status: "Guarding",
-      statusColor: "text-red-400 bg-red-500/10 border-red-500/20",
-      icon: Shield,
-      themeColor: "text-red-400 border-red-400/20 bg-red-400/10",
-      bgGlow: "group-hover:shadow-red-400/15",
     },
     {
       id: 5,
@@ -136,7 +116,7 @@ export default function AgentsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-slate-400 mt-4 text-base sm:text-lg"
           >
-            Meet the 7 core AI agents that collaborate within the BankVerse AI ecosystem to completely automate your digital banking, wealth building, and security.
+            Meet the 5 core AI agents that collaborate within the BankVerse AI ecosystem to completely automate your digital banking, wealth building, and security.
           </motion.p>
         </div>
 
@@ -193,38 +173,38 @@ export default function AgentsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="group relative col-span-1 md:col-span-2 lg:col-span-3 rounded-3xl glass-card p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                className="group relative col-span-1 lg:col-span-2 rounded-3xl glass-card p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
               >
                 {/* Visual Glow Layer */}
                 <div className="absolute right-0 top-0 w-96 h-96 bg-gradient-to-bl from-cyan-accent/10 to-electric-blue/10 rounded-full blur-[100px] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
                 
-                <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between h-full">
+                <div className="relative flex flex-col lg:flex-row gap-6 items-center justify-between h-full">
                   
                   {/* Left content block */}
-                  <div className="w-full lg:max-w-2xl">
-                    <div className="flex items-center gap-3.5 mb-6">
-                      <div className={`p-3.5 rounded-2xl border ${agent.themeColor} flex items-center justify-center shrink-0`}>
-                        <IconComponent className="h-7 w-7" />
+                  <div className="w-full">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className={`p-3 rounded-2xl border ${agent.themeColor} flex items-center justify-center shrink-0`}>
+                        <IconComponent className="h-6 w-6" />
                       </div>
                       <div>
                         <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border tracking-wide uppercase flex items-center gap-1 w-fit ${agent.statusColor}`}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-ping" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
                           {agent.status}
                         </span>
                       </div>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 group-hover:text-cyan-accent transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-accent transition-colors duration-300">
                       {agent.title}
                     </h3>
-                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-400 text-sm leading-relaxed">
                       {agent.description}
                     </p>
                     
-                    <div className="mt-8 flex flex-wrap gap-3">
-                      <span className="text-xs text-slate-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-xl">Compound Wealth Modeling</span>
-                      <span className="text-xs text-slate-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-xl">Retirement Projection</span>
-                      <span className="text-xs text-slate-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-xl">Predictive Risk Analysis</span>
+                    <div className="mt-8 flex flex-wrap gap-2.5">
+                      <span className="text-[10px] font-medium text-slate-400 bg-white/5 border border-white/5 px-2.5 py-1 rounded-xl">Compound Wealth Modeling</span>
+                      <span className="text-[10px] font-medium text-slate-400 bg-white/5 border border-white/5 px-2.5 py-1 rounded-xl">Retirement Projection</span>
+                      <span className="text-[10px] font-medium text-slate-400 bg-white/5 border border-white/5 px-2.5 py-1 rounded-xl">Predictive Risk Analysis</span>
                     </div>
                   </div>
 

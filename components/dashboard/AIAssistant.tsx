@@ -179,17 +179,17 @@ export default function AIAssistant({ onExecuteCommand, healthScore }: AIAssista
     if (qLower.includes("health") || qLower.includes("score")) {
       speakingAgent = "Finance Agent";
       replyText = `Your current Financial Health Score is ${healthScore}/100. The Finance Agent rates your standing as ${
-        healthScore > 80 ? "Excellent. Your savings buffer ($12.4k) and investment ratios are highly optimized." : "Good, but we recommend increasing your monthly investment slider to compound your retirement FIRE path."
+        healthScore > 80 ? "Excellent. Your savings buffer (₹1,20,000) and investment ratios are highly optimized." : "Good, but we recommend increasing your monthly investment slider to compound your retirement FIRE path."
       }`;
     } else if (qLower.includes("life") || qLower.includes("event") || qLower.includes("predict")) {
       speakingAgent = "Prediction Agent";
       replyText = "Analyzing transaction history... The Life Event Prediction Engine estimates a 78% probability of a major travel purchase in Dec 2026, and a 62% probability of home buying interest by mid-2027 based on savings accumulation.";
     } else if (qLower.includes("loan") || qLower.includes("emi") || qLower.includes("eligibility")) {
       speakingAgent = "Loan Agent";
-      replyText = "Based on your $8,000 monthly income and $15,000 liquid capital, you are pre-approved for up to $150,000 in mortgage loans at 6.1% APR. Your estimated 15-year EMI is $1,274/month.";
+      replyText = "Based on your ₹1,00,000 monthly income and ₹3,50,000 liquid capital, you are pre-approved for up to ₹25,00,000 in mortgage loans at 6.1% APR. Your estimated 15-year EMI is ₹21,200/month.";
     } else if (qLower.includes("reward") || qLower.includes("cashback") || qLower.includes("optimize")) {
       speakingAgent = "Rewards Agent";
-      replyText = "Scanning active merchant deals... Rewards Optimizer matched 5% cash back on food purchases using Chase Freedom. AutoPay adoption can save you 1.5% further in processing rebates.";
+      replyText = "Scanning active merchant deals... Rewards Optimizer matched 5% cash back on food purchases using Chase Freedom. We have updated your dashboard preferences to maximize point conversion.";
     } else {
       replyText = `Understood. Coordinated response compiled: I have routed your query to the appropriate agent sub-nets. You can adjust the simulation variables under the tabs to see real-time recalculations.`;
     }

@@ -7,10 +7,9 @@ import { Play, ArrowRight, BrainCircuit, Activity, ShieldCheck, Zap, TrendingUp,
 export default function HeroSection() {
   const [notificationIndex, setNotificationIndex] = useState(0);
   const notifications = [
-    { id: 1, agent: "Fraud Guardian", text: "Suspicious login attempt blocked from unknown IP", status: "success", icon: ShieldCheck },
-    { id: 2, agent: "Rewards Optimizer", text: "Saved ₹1,200 automatically on flight booking rewards", status: "rewards", icon: Sparkles },
-    { id: 3, agent: "Finance Coach", text: "Identified ₹15,000 recurring leakage in unused sub", status: "recommendation", icon: TrendingUp },
-    { id: 4, agent: "Digital Twin", text: "Simulated retirement scenario: +4.2% projected yield", status: "active", icon: BrainCircuit },
+    { id: 1, agent: "Rewards Optimizer", text: "Saved ₹1,200 automatically on flight booking rewards", status: "rewards", icon: Sparkles },
+    { id: 2, agent: "Finance Coach", text: "Identified ₹15,000 recurring leakage in unused sub", status: "recommendation", icon: TrendingUp },
+    { id: 3, agent: "Digital Twin", text: "Simulated retirement scenario: +4.2% projected yield", status: "active", icon: BrainCircuit },
   ];
 
   // Cycle notifications every 3 seconds
@@ -78,7 +77,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-slate-400 text-base sm:text-lg max-w-lg mb-8 leading-relaxed"
             >
-              Experience intelligent banking powered by multiple AI agents that acquire customers, drive digital adoption, optimize finances, detect fraud, and deliver hyper-personalized engagement.
+              Experience intelligent banking powered by multiple AI agents that acquire customers, optimize finances, detect fraud, and deliver hyper-personalized engagement.
             </motion.p>
 
             {/* CTAs */}
@@ -89,17 +88,11 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <a
-                href="#demo"
+                href="/login"
                 className="px-8 py-4 bg-gradient-to-r from-electric-blue to-cyan-accent hover:from-electric-blue/90 hover:to-cyan-accent/90 text-white font-bold rounded-2xl shadow-lg shadow-electric-blue/20 flex items-center justify-center gap-2 group transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               >
-                Launch Demo
+                Login
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#features"
-                className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-semibold rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Explore Features
               </a>
             </motion.div>
           </div>
@@ -215,7 +208,7 @@ export default function HeroSection() {
                 <p className="text-[10px] text-slate-400 mt-0.5">Core System online</p>
                 <div className="flex items-center gap-1 mt-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[9px] font-semibold text-emerald-400">7 Agents Active</span>
+                  <span className="text-[9px] font-semibold text-emerald-400">5 Agents Active</span>
                 </div>
               </div>
             </motion.div>

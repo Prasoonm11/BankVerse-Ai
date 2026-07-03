@@ -75,15 +75,6 @@ export default function WorkflowSection() {
     },
     {
       id: 6,
-      title: "Fraud Agent",
-      subtitle: "Real-Time Risk Scoring",
-      icon: ShieldCheck,
-      color: "text-red-400 bg-red-500/10 border-red-500/20",
-      borderColor: "border-red-500/30",
-      shadowColor: "shadow-red-500/10"
-    },
-    {
-      id: 7,
       title: "Recommendation",
       subtitle: "Hyper-Personalized Actions",
       icon: Sparkles,

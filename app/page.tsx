@@ -198,7 +198,7 @@ export default function Home() {
               transition={{ duration: 0.7, type: "spring", stiffness: 90, delay: 0.4 }}
               className={`text-sm sm:text-base mb-8 leading-relaxed max-w-md ${isLight ? 'text-slate-600' : 'text-slate-400'}`}
             >
-              Experience intelligent banking powered by multiple AI agents that acquire customers, drive digital adoption, optimize finances, detect fraud, and deliver hyper-personalized engagement.
+              Experience intelligent banking powered by multiple AI agents that acquire customers, optimize finances, detect fraud, and deliver hyper-personalized engagement.
             </motion.p>
 
             <motion.div

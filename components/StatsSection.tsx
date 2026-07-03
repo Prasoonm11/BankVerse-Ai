@@ -69,15 +69,7 @@ export default function StatsSection() {
       glow: "border-cyan-accent/15 shadow-cyan-accent/5 hover:border-cyan-accent/35",
     },
     {
-      value: 85,
-      suffix: "%",
-      decimals: 0,
-      label: "Digital Adoption",
-      description: "Increase in digital banking service utilization.",
-      glow: "border-accent-purple/15 shadow-accent-purple/5 hover:border-accent-purple/35",
-    },
-    {
-      value: 7,
+      value: 6,
       suffix: "",
       decimals: 0,
       label: "AI Agents",

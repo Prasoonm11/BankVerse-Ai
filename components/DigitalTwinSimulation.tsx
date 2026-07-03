@@ -6,9 +6,9 @@ import { Sliders, Sparkles, TrendingUp, BrainCircuit, ShieldAlert, Award, Calend
 
 export default function DigitalTwinSimulation() {
   // Slider states
-  const [income, setIncome] = useState(8000);
-  const [expenses, setExpenses] = useState(4500);
-  const [investment, setInvestment] = useState(1500);
+  const [income, setIncome] = useState(100000);
+  const [expenses, setExpenses] = useState(56500);
+  const [investment, setInvestment] = useState(25000);
 
   // Computed states
   const [futureWealth, setFutureWealth] = useState(0);
@@ -29,14 +29,14 @@ export default function DigitalTwinSimulation() {
     
     // Base score ranges from 35 to 98
     let score = 35 + (savingsRate * 0.8) + (investmentRate * 0.4);
-    if (surplus < 0) score = 35 + (surplus / 100); // penalize negative surplus
+    if (surplus < 0) score = 35 + (surplus / 1000); // penalize negative surplus
     const finalScore = Math.min(99, Math.max(20, Math.round(score)));
     setFinancialScore(finalScore);
 
     // 2. Future Wealth Projection (10 years / 120 months)
-    // Starting portfolio: $15,000
+    // Starting portfolio: ₹3,50,000
     // Monthly input = adjustedInvestment (growing at 8% p.a.) + remaining surplus (growing at 4% p.a.)
-    let currentBalance = 15000;
+    let currentBalance = 350000;
     const investReturn = 0.08 / 12;
     const savingsReturn = 0.04 / 12;
     const monthlyInvest = adjustedInvestment;
@@ -72,7 +72,7 @@ export default function DigitalTwinSimulation() {
     // Target Portfolio = Annual Expenses * 25
     const annualExpenses = expenses * 12;
     const targetPortfolio = annualExpenses * 25;
-    const startingPortfolio = 25000;
+    const startingPortfolio = 350000;
 
     let fireBalance = startingPortfolio;
     let monthsToFire = 0;
@@ -92,9 +92,9 @@ export default function DigitalTwinSimulation() {
     const projectedAge = Math.min(85, Math.max(35, Math.round(currentAge + yearsToFire)));
     setRetirementAge(projectedAge);
 
-    // 4. Goal Completion (e.g. $50,000 emergency/investment goal)
-    const targetGoal = 50000;
-    const startingGoal = 10000;
+    // 4. Goal Completion (e.g. ₹15,00,000 emergency/investment goal)
+    const targetGoal = 1500000;
+    const startingGoal = 350000;
     const monthlyContribution = monthlyInvest + monthlyLiquid;
     
     if (monthlyContribution <= 0) {
@@ -143,14 +143,14 @@ export default function DigitalTwinSimulation() {
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-xs font-bold text-slate-300 uppercase tracking-wider">Monthly Income</label>
                   <span className="text-sm font-bold text-white bg-white/5 px-3 py-1 rounded-lg border border-white/5">
-                    ${income.toLocaleString()}
+                    ₹{income.toLocaleString('en-IN')}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="2000"
-                  max="25000"
-                  step="250"
+                  min="20000"
+                  max="250000"
+                  step="2500"
                   value={income}
                   onChange={(e) => {
                     const val = Number(e.target.value);
@@ -161,9 +161,9 @@ export default function DigitalTwinSimulation() {
                   className="w-full cursor-pointer accent-cyan-accent bg-slate-800"
                 />
                 <div className="flex justify-between text-[10px] text-slate-500 mt-1.5 font-medium">
-                  <span>$2k</span>
-                  <span>$12.5k</span>
-                  <span>$25k</span>
+                  <span>₹20k</span>
+                  <span>₹1.2L</span>
+                  <span>₹2.5L</span>
                 </div>
               </div>
 
@@ -172,14 +172,14 @@ export default function DigitalTwinSimulation() {
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-xs font-bold text-slate-300 uppercase tracking-wider">Monthly Expenses</label>
                   <span className="text-sm font-bold text-white bg-white/5 px-3 py-1 rounded-lg border border-white/5">
-                    ${expenses.toLocaleString()}
+                    ₹{expenses.toLocaleString('en-IN')}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="1000"
-                  max="15000"
-                  step="100"
+                  min="10000"
+                  max="150000"
+                  step="2500"
                   value={expenses}
                   onChange={(e) => {
                     const val = Number(e.target.value);
@@ -191,9 +191,9 @@ export default function DigitalTwinSimulation() {
                   className="w-full cursor-pointer accent-cyan-accent bg-slate-800"
                 />
                 <div className="flex justify-between text-[10px] text-slate-500 mt-1.5 font-medium">
-                  <span>$1k</span>
-                  <span>$8k</span>
-                  <span>$15k</span>
+                  <span>₹10k</span>
+                  <span>₹80k</span>
+                  <span>₹1.5L</span>
                 </div>
               </div>
 
@@ -202,22 +202,22 @@ export default function DigitalTwinSimulation() {
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-xs font-bold text-slate-300 uppercase tracking-wider">Monthly Investment</label>
                   <span className="text-sm font-bold text-white bg-white/5 px-3 py-1 rounded-lg border border-white/5">
-                    ${adjustedInvestment.toLocaleString()}
+                    ₹{adjustedInvestment.toLocaleString('en-IN')}
                   </span>
                 </div>
                 <input
                   type="range"
                   min="0"
                   max={maxInvestment}
-                  step="50"
+                  step="1000"
                   value={adjustedInvestment}
                   onChange={(e) => setInvestment(Number(e.target.value))}
                   disabled={maxInvestment <= 0}
                   className="w-full cursor-pointer accent-cyan-accent bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed"
                 />
                 <div className="flex justify-between text-[10px] text-slate-500 mt-1.5 font-medium">
-                  <span>$0</span>
-                  <span>Surplus: ${maxInvestment.toLocaleString()}</span>
+                  <span>₹0</span>
+                  <span>Surplus: ₹{maxInvestment.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             </div>
@@ -225,7 +225,7 @@ export default function DigitalTwinSimulation() {
             <div className="pt-4 border-t border-white/5 bg-cyan-accent/5 -mx-6 md:-mx-8 -mb-6 md:-mb-8 p-4 flex items-start gap-2.5 rounded-b-3xl">
               <Sparkles className="h-4 w-4 text-cyan-accent shrink-0 mt-0.5" />
               <p className="text-[10px] text-slate-400 leading-normal">
-                Twin calculations are generated assuming a starting wealth pool of $15,000, compounding at 8.5% annual return on investments, and 4% APY on liquid savings.
+                Twin calculations are generated assuming a starting wealth pool of ₹3,50,000, compounding at 8.5% annual return on investments, and 4% APY on savings.
               </p>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function DigitalTwinSimulation() {
               </div>
               <div>
                 <h4 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                  ${Math.round(futureWealth).toLocaleString()}
+                  ₹{Math.round(futureWealth).toLocaleString('en-IN')}
                 </h4>
                 <p className="text-[10px] text-emerald-400 mt-1 flex items-center gap-0.5">
                   Based on current surplus allocation
@@ -271,7 +271,7 @@ export default function DigitalTwinSimulation() {
                   </h4>
                 )}
                 <p className="text-[10px] text-slate-400 mt-1">
-                  Target portfolio: ${(expenses * 12 * 25).toLocaleString()}
+                  Target portfolio: ₹{(expenses * 12 * 25).toLocaleString('en-IN')}
                 </p>
               </div>
               <div className="border-t border-white/5 pt-2 text-[9px] text-slate-500">
@@ -283,7 +283,7 @@ export default function DigitalTwinSimulation() {
             <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-5 md:p-6 flex flex-col justify-between">
               <div>
                 <Award className="h-5 w-5 text-amber-400" />
-                <span className="text-[10px] uppercase font-bold text-slate-500 mt-3 block">Tesla Fund Goal</span>
+                <span className="text-[10px] uppercase font-bold text-slate-500 mt-3 block">Car Fund Goal</span>
               </div>
               <div>
                 {goalMonths === -1 ? (
@@ -294,11 +294,11 @@ export default function DigitalTwinSimulation() {
                   </h4>
                 )}
                 <p className="text-[10px] text-slate-400 mt-1">
-                  To reach $50,000 target
+                  To reach ₹15,00,000 target
                 </p>
               </div>
               <div className="border-t border-white/5 pt-2 text-[9px] text-slate-500">
-                Starting from $10,000
+                Starting from ₹3,50,000
               </div>
             </div>
 

@@ -29,7 +29,6 @@ interface DashboardOverviewProps {
   appliedOptimizations: number[];
   isAutonomousMode: boolean;
   kycStatus: string;
-  digitalAdoptionRate: number;
 }
 
 export default function DashboardOverview({
@@ -41,8 +40,7 @@ export default function DashboardOverview({
   onApplyOptimization,
   appliedOptimizations,
   isAutonomousMode,
-  kycStatus,
-  digitalAdoptionRate
+  kycStatus
 }: DashboardOverviewProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [expandedRecId, setExpandedRecId] = useState<number | null>(null);
@@ -118,34 +116,29 @@ export default function DashboardOverview({
         </div>
 
         {/* Column 2: AI Sweep progress */}
-        <div className="md:col-span-3 bg-slate-900/20 border border-white/5 rounded-3xl p-6 flex flex-col justify-between h-full relative overflow-hidden">
+        <div className="md:col-span-4 bg-slate-900/20 border border-white/5 rounded-3xl p-6 flex flex-col justify-between h-full relative overflow-hidden">
           <div className="absolute top-[-20%] right-[-10%] w-24 h-24 bg-accent-purple/5 rounded-full blur-xl pointer-events-none" />
           <div className="flex flex-col">
             <h4 className="text-xl font-bold text-white">₹{sweepReserve.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</h4>
             <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]" /> 27% Sweep Reserve
+              <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" /> Goal Sweep Pool
             </span>
           </div>
-          
+
           <div className="mt-4">
-            <div className="w-full bg-slate-950/60 border border-white/5 h-6 rounded-xl overflow-hidden relative p-0.5">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "27%" }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="h-full bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] rounded-lg shadow-[0_0_12px_rgba(124,58,237,0.3)]"
+            <div className="w-full bg-slate-950/60 border border-white/5 h-2 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-electric-blue to-accent-purple rounded-full transition-all duration-500" 
+                style={{ width: `${activeGoalsRate}%` }} 
               />
             </div>
-            <div className="flex justify-between items-center text-[8px] text-slate-500 font-bold uppercase tracking-wider mt-2">
-              <span>Sweep Buffer</span>
-              <span>₹{(sweepReserve * 3.7).toLocaleString('en-IN', { maximumFractionDigits: 0 })} Limit</span>
-            </div>
+            <p className="text-[8px] text-slate-500 font-bold uppercase mt-2">Vaults: {activeGoalsRate}% Funded</p>
           </div>
         </div>
 
-        {/* Column 3: Yield pool */}
-        <div className="md:col-span-3 bg-slate-900/20 border border-white/5 rounded-3xl p-6 flex flex-col justify-between h-full relative overflow-hidden">
-          <div className="absolute top-[-20%] right-[-10%] w-24 h-24 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
+        {/* Column 3: Yield Projection */}
+        <div className="md:col-span-4 bg-slate-900/20 border border-white/5 rounded-3xl p-6 flex flex-col justify-between h-full relative overflow-hidden">
+          <div className="absolute top-[-20%] right-[-10%] w-24 h-24 bg-electric-blue/5 rounded-full blur-xl pointer-events-none" />
           <div className="flex flex-col">
             <h4 className="text-xl font-bold text-white">₹{smartYield.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</h4>
             <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 mt-1">
@@ -165,26 +158,6 @@ export default function DashboardOverview({
                 />
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Column 4: Digital Adoption Info */}
-        <div className="md:col-span-2 bg-slate-900/20 border border-white/5 rounded-3xl p-6 flex flex-col justify-between h-full relative overflow-hidden">
-          <div className="flex flex-col">
-            <h4 className="text-xl font-bold text-white">{digitalAdoptionRate}%</h4>
-            <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-accent" /> Digital Adoption
-            </span>
-          </div>
-
-          <div className="mt-4">
-            <div className="w-full bg-slate-950/60 border border-white/5 h-2 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-cyan-accent rounded-full transition-all duration-500" 
-                style={{ width: `${digitalAdoptionRate}%` }} 
-              />
-            </div>
-            <p className="text-[8px] text-slate-500 font-bold uppercase mt-2">Services Active</p>
           </div>
         </div>
 
